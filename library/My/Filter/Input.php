@@ -9,8 +9,8 @@ class My_Filter_Input extends Zend_Filter_Input {
             self::ALLOW_EMPTY => false,
             self::BREAK_CHAIN => true,
             self::ESCAPE_FILTER => 'StringTrim',
-            self::MISSING_MESSAGE => 'Không được để trống.',
-            self::NOT_EMPTY_MESSAGE => 'Không được để trống.',
+            self::MISSING_MESSAGE => 'Không được để trống',
+            self::NOT_EMPTY_MESSAGE => 'Không được để trống',
             self::PRESENCE => self::PRESENCE_REQUIRED
         );
         parent::__construct(array('*' => new My_Filter_StringTrim()), $validatorRules, $data, array_merge($defaultOptions, $options));
