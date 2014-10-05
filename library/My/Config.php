@@ -1,7 +1,17 @@
 <?php
 
+/**
+ * 
+ * @author AnhNV
+ *
+ */
 class My_Config extends Zend_Config {
     
+	/**
+	 * 
+	 * @param array $array
+	 * @param string $allowModifications
+	 */
     public function __construct(array $array, $allowModifications = false)
     {
         $this->_allowModifications = (boolean) $allowModifications;
@@ -18,6 +28,10 @@ class My_Config extends Zend_Config {
         $this->_count = count($this->_data);
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see Zend_Config::__set()
+     */
     public function __set($name, $value)
     {
         if ($this->_allowModifications) {
@@ -34,6 +48,10 @@ class My_Config extends Zend_Config {
         }
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see Zend_Config::merge()
+     */
     public function merge(Zend_Config $merge)
     {
         foreach($merge as $key => $item) {
@@ -55,6 +73,13 @@ class My_Config extends Zend_Config {
         return $this;
     }
 
+    /**
+     * 
+     * @param unknown $path
+     * @param string $allowModifications
+     * @throws My_Config_Exception
+     * @return My_Config
+     */
     public static function loadFile($path, $allowModifications = false) {
         if (file_exists($path)) {
             return new My_Config(require($path), $allowModifications);

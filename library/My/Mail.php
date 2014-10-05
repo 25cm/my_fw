@@ -9,6 +9,12 @@ class My_Mail {
 	
 	/**
 	 * 
+	 * @var from email
+	 */
+	protected $_from;
+	
+	/**
+	 * 
 	 * @var to email
 	 */
 	protected $_to;
@@ -32,10 +38,19 @@ class My_Mail {
 	 * @param string $subject
 	 * @param string $html
 	 */
-	public function __construct($to = null, $subject = null, $html = null) {
+	public function __construct($from = null, $to = null, $subject = null, $html = null) {
+		$this->_from = $from;
 		$this->_to = $to;
 		$this->_subject = $subject;
 		$this->_html = $html;
+	}
+	
+	/**
+	 * 
+	 * @param string $from
+	 */
+	public function setFrom($from) {
+		$this->_from = $from;
 	}
 	
 	/**
@@ -81,7 +96,8 @@ class My_Mail {
 		
 			$mail = new Zend_Mail("utf-8");
 			$mail->setType(Zend_Mime::MULTIPART_RELATED);
-			$mail->setFrom(My_Registry::getConfig()->system->mail->setting->username, My_Registry::getConfig()->system->mail->setting->from_name);
+			//$mail->setFrom(My_Registry::getConfig()->system->mail->setting->username, My_Registry::getConfig()->system->mail->setting->from_name);
+			$mail->setFrom($this->_from);
 			$mail->addTo($this->_to);
 			$mail->setSubject($this->_subject);
 			$mail->setBodyHtml($this->_html);

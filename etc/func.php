@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * 
+ * @param unknown $var
+ * @param string $dieAfter
+ */
 function d($var, $dieAfter = false) {
     echo '<pre>';
     var_dump($var);
@@ -7,10 +12,17 @@ function d($var, $dieAfter = false) {
     if ($dieAfter) die();
 }
 
+/**
+ * 
+ * @param unknown $var
+ */
 function h($var) {
     return htmlspecialchars($var, ENT_QUOTES);
 }
 
+/**
+ * pjoin
+ */
 function pjoin() {
     $args = func_get_args();
     $paths = array();
@@ -25,6 +37,9 @@ function pjoin() {
     return implode('/', $paths);
 }
 
+/**
+ * 
+ */
 if(!function_exists('get_called_class')) {
     class __Future {
         static $i = 0;

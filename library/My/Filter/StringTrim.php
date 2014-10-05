@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * 
+ * @author AnhNV
+ *
+ */
 class My_Filter_StringTrim extends Zend_Filter_StringTrim {
 	
     public function filter($value) {

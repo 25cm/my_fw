@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * 
+ * @author AnhNV
+ *
+ */
 class My_Registry extends Zend_Registry {
 
     const KEY_MASTER_DB = 'masterDb';

@@ -1,8 +1,22 @@
 <?php
 
+/**
+ * 
+ * @author AnhNV
+ *
+ */
 class My_Filter_Input extends Zend_Filter_Input {
+	
     const KEY_FILTER = 'filter';
     const KEY_VALIDATE = 'validate';
+    
+    /**
+     * 
+     * @param unknown $filterRules
+     * @param unknown $validatorRules
+     * @param unknown $data
+     * @param unknown $options
+     */
     public function __construct($filterRules, $validatorRules, $data = array(), $options = array()) {
         $filterRules = array_merge(array('*' => new My_Filter_StringTrim()), $filterRules);
         $defaultOptions = array(
